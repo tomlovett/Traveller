@@ -13,8 +13,7 @@
 	<input type="text" ng-model="searchText" placeholder="Search Countries">
 	<button ng-click="search()">Search</button>
 
-	<p ng-repeat="country in earth">{{country.name}} <input type="checkbox" ng-click="markTravelled(country)">
-	</p>
+	<p ng-repeat="country in earth"><input type="checkbox" ng-model="country.travelled" ng-click="markTravelled(country)">{{country.name}}</p>
 
 </body>
 </html>

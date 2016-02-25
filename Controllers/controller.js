@@ -16,7 +16,11 @@ var searchCountries = function(req, res) {
 }
 
 var markTravelled = function(req, res) {
-	
+	Country.findById(req.body._id, function(err, doc) {
+		doc.travelled = req.body.travelled
+		doc.save()
+		res.send(doc)
+	})
 }
 
 module.exports = {

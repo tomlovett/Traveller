@@ -8,6 +8,7 @@ angular.module('Countries')
 				.then(function(returnData) {
 					$scope.earth = returnData.data
 				})
+
 		}
 
 		$scope.search = function() {
@@ -17,6 +18,13 @@ angular.module('Countries')
 					if (returnData) {
 						$scope.earth = returnData.data
 					}
+				})
+		}
+
+		$scope.markTravelled = function(country) {
+			$http.post('/api/travelled', country)
+				.then(function(returnData) {
+					console.log('updated: ', returnData.data)
 				})
 		}
 

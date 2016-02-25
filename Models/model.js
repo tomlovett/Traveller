@@ -5,7 +5,7 @@ var countrySchema = mongoose.Schema({
 	frenchName : String,
 	localName  : String,
 	region     : String,
-	travelled   : Boolean
+	travelled   : { type: Boolean, default: false }
 })
 
 module.exports = mongoose.model('Country', countrySchema)
