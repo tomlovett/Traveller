@@ -1,9 +1,16 @@
-var countries = require('../Models/countries.json')
+var Country = require('../Models/model.js')
 
 var loadCountries = function(req, res) {
-	res.send(countries)
+	Country.find({}, function(err, docs) {
+		res.send(docs)
+	})
+}
+
+var searchCountries = function(req, res) {
+	console.log(req)
 }
 
 module.exports = {
-	loadCountries : loadCountries
+	loadCountries   : loadCountries, 
+	searchCountries : searchCountries
 }
