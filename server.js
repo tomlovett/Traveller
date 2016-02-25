@@ -25,6 +25,8 @@ app.get('/api/countries', controller.loadCountries)
 
 app.post('/api/search', controller.searchCountries)
 
+app.post('/api/travelled', controller.markTravelled)
+
 // Creating Server and Listening for Connections \\
 var port = 3000
 app.listen(port, function(){

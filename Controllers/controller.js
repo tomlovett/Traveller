@@ -7,10 +7,20 @@ var loadCountries = function(req, res) {
 }
 
 var searchCountries = function(req, res) {
-	console.log(req)
+	var search = new RegExp(req.body.search)
+	console.log(search)
+	Country.find({name: search}, function(err, docs) {
+		console.log('docs :', docs)
+		res.send(docs)
+	})
+}
+
+var markTravelled = function(req, res) {
+	
 }
 
 module.exports = {
 	loadCountries   : loadCountries, 
-	searchCountries : searchCountries
+	searchCountries : searchCountries,
+	markTravelled   : markTravelled
 }

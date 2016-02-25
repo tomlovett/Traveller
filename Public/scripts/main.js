@@ -6,16 +6,17 @@ angular.module('Countries')
 		$scope.loadCountries = function() {
 			$http.get('/api/countries')
 				.then(function(returnData) {
-					$scope.countries = returnData.data
-					console.log($scope.countries)
+					$scope.earth = returnData.data
 				})
 		}
 
 		$scope.search = function() {
-			console.log($scope.searchText)
-			$http.post('/api/search', $scope.searchText)
-				.then(function(err, returnData) {
-					console.log('yiiii')
+			$http.post('/api/search', {search: $scope.searchText})
+				.then(function(returnData) {
+					console.log(returnData)
+					if (returnData) {
+						$scope.earth = returnData.data
+					}
 				})
 		}
 
